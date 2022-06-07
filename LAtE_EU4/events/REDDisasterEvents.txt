@@ -1,0 +1,105 @@
+# Redcoat Disaster Events
+
+namespace = DisasterEventsRED
+
+# Disaster Start
+
+country_event = {
+	id = DisasterEventsRED.1
+	title = "DisasterEventsRED.1.t"
+	desc = "DisasterEventsRED.1.d"
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		tag = RED
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = final_days_of_the_dominion_tt1
+		clr_country_flag = final_days_of_the_dominion_tt2
+		clr_country_flag = final_days_of_the_dominion_tt3
+		clr_country_flag = final_days_of_the_dominion_tt4
+		clr_country_flag = final_days_of_the_dominion_tt5
+	}
+
+	option = {
+		name = "DisasterEventsRED.1.o"
+	}
+}
+
+# Disaster End
+
+country_event = {
+	id = DisasterEventsRED.2
+	title = "DisasterEventsRED.2.t"
+	desc = "DisasterEventsRED.2.d"
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		tag = RED
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = past_the_final_days
+	}
+
+	option = {
+		name = "DisasterEventsRED.2.o"
+	}
+}
+
+# Accepted Commoners
+
+country_event = {
+	id = DisasterEventsRED.3
+	title = "DisasterEventsRED.3.t"
+	desc = "DisasterEventsRED.3.d"
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		tag = RED
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = commoner_generals
+	}
+
+	option = {
+		name = "DisasterEventsRED.3.o"
+		create_general = { 
+			tradition = 50 
+		    add_shock = 2
+			add_siege = 1
+
+		}
+	}
+}
+
+# Rejected Commoners, maybe make the Boston ending happen faster?
+
+country_event = {
+	id = DisasterEventsRED.4
+	title = "DisasterEventsRED.4.t"
+	desc = "DisasterEventsRED.4.d"
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		tag = RED
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = restricted_army_leadership
+	}
+
+	option = {
+		name = "DisasterEventsRED.4.o"
+	}
+}

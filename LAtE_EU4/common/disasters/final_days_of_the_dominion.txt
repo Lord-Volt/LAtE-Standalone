@@ -1,0 +1,77 @@
+final_days_of_the_dominion = {
+	potential = {
+		NOT = { has_country_flag = past_the_final_days }
+		tag = RED
+		always = yes
+	}
+
+
+	can_start = {
+		has_any_disaster = no
+		always = yes
+	}
+	
+	can_stop = {
+        always = no
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = final_days_of_the_dominion_tt1
+				has_country_flag = RED_disaster_1
+			}
+		}
+		modifier = {
+			factor = 1
+			custom_trigger_tooltip = {
+				tooltip = final_days_of_the_dominion_tt2
+				has_country_flag = RED_disaster_2
+			}
+		}
+		modifier = {
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = final_days_of_the_dominion_tt3
+				has_country_flag = RED_disaster_3
+			}
+		}
+        modifier = {
+			factor = -0.5
+			custom_trigger_tooltip = {
+				tooltip = final_days_of_the_dominion_tt4
+				has_country_flag = RED_disaster_4
+			}
+		}
+        modifier = {
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = final_days_of_the_dominion_tt5
+				has_country_flag = RED_disaster_5
+			}
+		}
+	}
+	
+	can_end = {
+		custom_trigger_tooltip = {
+			tooltip = final_days_of_the_dominion_end_tt
+			NOT = {
+				exists = RED
+                exists = RED
+			}						
+		}
+	}
+	
+	modifier = {	
+		global_regiment_cost = -0.2
+		manpower_in_true_faith_provinces= 0.10
+		stability_cost_modifier = 0.25
+	}
+
+	on_start = DisasterEventsRED.1
+	on_end = DisasterEventsRED.2
+	
+	on_monthly = {
+	}
+}

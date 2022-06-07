@@ -1,0 +1,11 @@
+# Modifiers for the Redcoats
+
+# Pre-Disaster Choice 3
+commoner_generals = {
+	land_morale = 0.05
+	global_manpower_modifier = 0.05
+}
+restricted_army_leadership = {
+	army_tradition_from_battle = 0.50
+	cavalry_power = 0.10
+}

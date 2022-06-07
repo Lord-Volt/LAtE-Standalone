@@ -1,0 +1,241 @@
+# Redcoat Events
+
+namespace = EventsRED
+
+# Starting Event
+
+country_event = {
+	id = EventsRED.1
+	title = "EventsRED.1.t"
+	desc = "EventsRED.1.d"
+	picture = REVOLUTION_eventPicture
+
+	trigger = {
+		tag = RED
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = RED_disaster_1
+	}
+	
+	option = {
+		name = "EventsRED.1.o"
+		add_prestige = -10
+	}
+}
+
+# Pre-Disaster Choice 1, 1 vs 0.5
+
+country_event = {
+	id = EventsRED.2
+	title = "EventsRED.2.t"
+	desc = "EventsRED.2.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EventsRED.2.o.1"
+		set_country_flag =  RED_disaster_2
+	}
+
+	option = {
+		name = "EventsRED.2.o.1"
+		set_country_flag =  RED_disaster_3
+	}
+}
+
+# Pre-Disaster Choice 2, -0.5 vs 0.5
+
+country_event = {
+	id = EventsRED.3
+	title = "EventsRED.3.t"
+	desc = "EventsRED.3.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EventsRED.3.o.1"
+		set_country_flag =  RED_disaster_4
+	}
+	option = {
+		name = "EventsRED.3.o.2"
+		set_country_flag =  RED_disaster_5
+	}
+}
+
+# Pre-Disaster Choice 3, modifier vs modifier + hidden future event mid disaster
+
+country_event = {
+	id = EventsRED.4
+	title = "EventsRED.4.t"
+	desc = "EventsRED.4.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EventsRED.4.o.1"
+		set_country_flag =  commoner_generals
+		add_manpower = 3
+		add_country_modifier = { 
+			name = commoner_generals
+			duration = 3650
+		}
+	}
+	option = {
+		name = "EventsRED.4.o.2"
+		set_country_flag =  restricted_army_leadership
+		add_army_tradition = 15
+		add_country_modifier = { 
+			name = restricted_army_leadership
+			duration = 3650
+		}
+	}
+}
+
+# Pre-Disaster Choice 4, Chain Part 1. Takes resources and informs Britain of the situation in America. The Redcoats are informed of the expeditions fate if they discover Britain or are discovered by them instead (unlikely but why not). Also gives them some monarch points and institution progress.
+
+country_event = {
+	id = EventsRED.5
+	title = "EventsRED.5.t"
+	desc = "EventsRED.5.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EventsRED.5.o.1" #yes, starts event chain
+		set_country_flag =  sent_british_expedition
+		add_years_of_income = -0.5 #tweak if neccessary
+	}
+	option = {
+		name = "EventsRED.5.o.2" #no, ends it there
+	}
+}
+
+# 75/25 if it happens, hidden event. Disabled, because it'd lock players out of content for no reason.
+
+#country_event = {
+	id = EventsRED.6
+	title = "EventsRED.6.t"
+	desc = "EventsRED.6.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+		has_country_flag = sent_british_expedition
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = sent_british_expedition
+	}
+	
+	option = {
+		name = "EventsRED.6.o.1" 
+		ai_chance = { factor = 75 }
+		country_event = { 
+			id = EventsRED.7
+			days = 1500
+			random = 500
+		}
+	}
+	option = {
+		name = "EventsRED.6.o.2"
+		ai_chance = { factor = 25 }
+		country_event = { 
+			id = EventsRED.7 #same because the effect changes depending on the flag
+			days = 1500
+			random = 500
+		}
+	}
+}
+
+# Ship built.
+
+country_event = {
+	id = EventsRED.6
+	title = "EventsRED.6.t"
+	desc = "EventsRED.6.d"
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RED
+		has_country_flag = sent_british_expedition
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = sent_british_expedition
+	}
+	
+	option = {
+		name = "EventsRED.6.o.1" 
+		ai_chance = { factor = 75 }
+		country_event = { 
+			id = EventsRED.7
+			days = 1500
+			random = 500
+		}
+	}
+	option = {
+		name = "EventsRED.6.o.2"
+		ai_chance = { factor = 25 }
+		country_event = { 
+			id = EventsRED.7 #same because the effect changes depending on the flag
+			days = 1500
+			random = 500
+		}
+	}
+}
+
